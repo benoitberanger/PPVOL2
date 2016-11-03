@@ -1,7 +1,13 @@
 clc;
 
+addpath(fullfile(pwd,'EzPTB'))
+
+if nargin < 3
+    eyelink = 0;
+end
+
 if nargin < 2
-    irm=0;
+    irm = 0;
 end
 
 if nargin < 1
@@ -11,14 +17,23 @@ end
 if strcmp(name,'')
     saveFlag = 0;
 else
+    if length(name)~= 5
+        error('name must be 5 chars (for eyelink)')
+    end
     saveFlag = 1;
 end
 
+timeNow = now;
+TimeStamp = datestr(timeNow);
+TimeStampISO = datestr(timeNow,30);
+
 if saveFlag
+    
+    saveFilePath = [fileparts(pwd) filesep 'data' filesep];
     
     stack = dbstack;
     functionName = stack(2).name;
-    saveFileName = [fileparts(pwd) filesep 'data' filesep name '_' functionName];
+    saveFileName = [saveFilePath TimeStampISO '_' name '_' functionName];
     
     if exist([saveFileName '.mat'],'file')
         error('The corresponding result file already exists, please choose another name !');
@@ -27,6 +42,8 @@ if saveFlag
     diary([saveFileName '.txt'])
     
     fprintf('Data will be saved in : %s \n',saveFileName)
+    
+    eyelinkFileName = ['PP' name functionName(1)];
     
 else
     

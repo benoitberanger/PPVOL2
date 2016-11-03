@@ -1,6 +1,5 @@
-function Meridian(name,irm)
+function Meridian(name,irm,eyelink)
 
-addpath(fullfile(pwd,'EzPTB'))
 addpath(fullfile(pwd,'Common'))
 
 ParseArguments % wrapper
@@ -55,7 +54,7 @@ try
     meridianrect = CenterRectOnPoint(Screen('Rect',meridiantex(1,:)),video.x/2,video.y/2);
     
     CreateTrialSequence % wrapper
-    
+    StartRecordingEyelink % wrapper
     WaitForTTL % wrapper
     
     % main loop
@@ -110,12 +109,15 @@ try
     
     StopPTB; % wrapper
     
+    EyelinkStopAndDownload
+    
 catch
     
     if saveFlag
         save([saveFileName '_ERROR.mat']);
     end
     StopPTB; % wrapper
+    EyelinkEmergencySTOP
     psychrethrow(psychlasterror);
     
 end

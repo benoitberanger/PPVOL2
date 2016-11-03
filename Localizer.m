@@ -1,6 +1,5 @@
-function Localizer(name,irm)
+function Localizer(name,irm,eyelink)
 
-addpath(fullfile(pwd,'EzPTB'))
 addpath(fullfile(pwd,'Common'))
 
 ParseArguments % wrapper
@@ -27,7 +26,7 @@ try
     targetrect(4,:) = CenterRectOnPoint([0,0,targetdiameter,targetdiameter],video.x/2-targetx,video.y/2-targety); % up - left
     
     CreateTrialSequence % wrapper
-    
+    StartRecordingEyelink % wrapper
     WaitForTTL % wrapper
     
     % main loop
@@ -116,12 +115,15 @@ try
     
     StopPTB; % wrapper
     
+    EyelinkStopAndDownload
+    
 catch
     
     if saveFlag
         save([saveFileName '_ERROR.mat']);
     end
     StopPTB; % wrapper
+    EyelinkEmergencySTOP
     psychrethrow(psychlasterror);
     
 end
