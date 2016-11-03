@@ -19,9 +19,11 @@ end
 % FOR IRM
 OpenParPort; % Initialisation port parallele
 WriteParPort( 0);
-HideCursor;
-FlushEvents;
-ListenChar(2);
+if saveFlag
+    HideCursor;
+end
+% FlushEvents;
+% ListenChar(2);
 PsychImaging('PrepareConfiguration');
 PsychImaging('AddTask','General','UseFastOffscreenWindows');
 PsychImaging('AddTask','General','NormalizedHighresColorRange');

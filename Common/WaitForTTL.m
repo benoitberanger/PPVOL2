@@ -6,6 +6,10 @@ DrawFormattedText(video.h,sprintf('Préparez-vous, ça va démarrer !'),'center',vi
 t0 = Screen('Flip',video.h);
 WriteParPort(255);  % for eye tracker FOR IRM
 
+keys = {'5%' 't' 'escape' '1!' , 'return'};
+KL = KbLogger(KbName(keys) , keys);
+KL.Start;
+
 % wait for TTL (derive des 2 horloge : 1 ms toutes les 2 mins)
 if irm == 1
     WaitKeyPress(KbName({'t', '5%'}),Inf);  % '(' = '5%'

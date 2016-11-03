@@ -30,6 +30,7 @@ try
     WaitForTTL % wrapper
     
     % main loop
+    escFlag = 0;
     for iblock = 1:size(block,1)
         
         nwhitedots(iblock) = round(rand);
@@ -85,6 +86,7 @@ try
             % if ESC is pressed, then abort session
             event = CheckKeyPress(KbName({'escape'}));
             if event == 1
+                escFlag = 1;
                 break
             end
             
@@ -104,6 +106,11 @@ try
             ClickEcho % wrapper
             
         end
+        
+        if escFlag == 1;
+            break
+        end
+        
     end
     
     total_nwhitedots = sum(nwhitedots)

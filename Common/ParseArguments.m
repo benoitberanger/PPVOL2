@@ -27,12 +27,13 @@ timeNow = now;
 TimeStamp = datestr(timeNow);
 TimeStampISO = datestr(timeNow,30);
 
+stack = dbstack;
+functionName = stack(2).name;
+
 if saveFlag
     
     saveFilePath = [fileparts(pwd) filesep 'data' filesep];
-    
-    stack = dbstack;
-    functionName = stack(2).name;
+
     saveFileName = [saveFilePath TimeStampISO '_' name '_' functionName];
     
     if exist([saveFileName '.mat'],'file')
