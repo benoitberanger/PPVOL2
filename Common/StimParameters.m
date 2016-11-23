@@ -1,5 +1,8 @@
-%TR = 1.78; %in seconds
-TR = 2.130; % 36 slices
+%TR = 1.78; %in seconds, probably even older version than PPVOL1
+% Previous TR = 2.130; % 36 slices 
+% The real TR is now 1 sec, multiband
+realTR = 1;
+TR = 2*realTR;
 flicker_duration = TR/n_flickers_per_TR; 
 flicker_freq = n_flickers_per_TR/TR;
 n_TR_per_block = 8;

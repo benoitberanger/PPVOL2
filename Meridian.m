@@ -8,7 +8,7 @@ ScreenParameters % wrapper
 
 % 3 conditions : horizontal meridian, vertical meridian and blank, with a
 % blank between each
-n_flickers_per_TR = 71;
+n_flickers_per_TR = 60; % this gives a flicker duration of 33 ms = 2 frames at 60Hz
 
 StimParameters % wrapper
 

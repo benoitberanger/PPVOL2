@@ -8,7 +8,7 @@ ScreenParameters % wrapper
 
 % 3 conditions : stim left, stim right and blank, with a
 % blank between each
-n_flickers_per_TR = 40;
+n_flickers_per_TR = 40; % this gives a flicker duration of 33 ms = 2 frames at 60Hz
 
 StimParameters % wrapper
 
