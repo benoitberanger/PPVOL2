@@ -10,6 +10,9 @@ block_duration = n_TR_per_block*TR;
 nblocks_per_cond = 5;
 block = repmat([1; 0; 2; 0],nblocks_per_cond,1);
 allonsets = ((1:length(block))-1)*block_duration;
+ndummies = 2;
+allonsets = allonsets + ndummies*TR;
+
 
 names{1,1} = 'stimleft';
 names{1,2} = 'blank';
@@ -37,6 +40,8 @@ block_duration = n_TR_per_block*TR;
 nblocks_per_cond = 5;
 block = repmat([1; 0; 2; 0],nblocks_per_cond,1);
 allonsets = ((1:length(block))-1)*block_duration;
+ndummies = 2;
+allonsets = allonsets + ndummies*TR;
 
 names{1,1} = 'horz';
 names{1,2} = 'blank';
@@ -61,6 +66,8 @@ block_duration = n_TR_per_block*TR;
 nblocks_per_cond = 5;
 block = repmat([1; 0; 2; 0],nblocks_per_cond,1);
 allonsets = ((1:length(block))-1)*block_duration;
+ndummies = 2;
+allonsets = allonsets + ndummies*TR;
 
 names{1,1} = 'stimleft';
 names{1,2} = 'blank';
@@ -85,6 +92,8 @@ block_duration = n_TR_per_block*TR;
 nblocks_per_cond = 5;
 block = repmat([1; 0; 2; 0],nblocks_per_cond,1);
 allonsets = ((1:length(block))-1)*block_duration;
+ndummies = 2;
+allonsets = allonsets + ndummies*TR;
 
 names{1,1} = 'horz';
 names{1,2} = 'blank';
