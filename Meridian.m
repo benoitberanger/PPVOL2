@@ -109,22 +109,22 @@ try
     
     total_nwhitedots = sum(nwhitedots)
     
+    StopPTB; % wrapper
+    
     % save all variables
     if saveFlag
         save([saveFileName '.mat']);
     end
     
-    StopPTB; % wrapper
-    
-    EyelinkStopAndDownload
+    EyelinkStopAndDownload % wrapper
     
 catch
     
+    StopPTB; % wrapper
     if saveFlag
         save([saveFileName '_ERROR.mat']);
     end
-    StopPTB; % wrapper
-    EyelinkEmergencySTOP
+    EyelinkEmergencySTOP % wrapper
     psychrethrow(psychlasterror);
     
 end

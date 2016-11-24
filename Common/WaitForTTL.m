@@ -6,7 +6,7 @@ DrawFormattedText(video.h,sprintf('Préparez-vous, ça va démarrer !'),'center',vi
 t0 = Screen('Flip',video.h);
 WriteParPort(255);  % for eye tracker FOR IRM
 
-keys = {'5%' 't' 'escape' '1!' , 'return'};
+keys = {'5%' 't' 'escape' '1!' '2@' 'return'};
 KL = KbLogger(KbName(keys) , keys);
 KL.Start;
 

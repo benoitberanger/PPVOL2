@@ -17,7 +17,7 @@ end
 if strcmp(name,'')
     saveFlag = 0;
 else
-    if length(name)~= 5
+    if eyelink && length(name)~= 5
         error('name must be 5 chars (for eyelink)')
     end
     saveFlag = 1;
